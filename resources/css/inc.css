@@ -1,0 +1,584 @@
+@charset "utf-8";
+.header{
+	position:relative;
+	height:30px;
+	background:#ddd;
+	z-index:5;
+}
+.footer{
+	position:relative;
+	height:80px;
+	/* border-top:4px solid #ff00ff; */
+	/* background:#fff; */
+	z-index:1;
+}
+.nav_wrap .logo{
+	font-size:25px;
+	padding:12px;
+}
+.fix_menu{
+	position:relative;
+	display:inline-block;
+	padding:0 12px;
+	transition:all 0.1s;
+	z-index:10;
+}
+.fix_menu > a,
+.fix_menu > div{
+	float:left;
+	margin-right:4px;
+}
+.fix_menu_wrap{
+	position:fixed;
+	top:0;
+	left:0;
+	height:100%;
+	box-sizing:border-box;
+	z-index:5;
+}
+.fix_menu_wrap:before{
+	position:absolute;
+	content:'';
+	background:#fff url('../images/common/m_bg_body_lineY.png') repeat-y 100% 0;
+	background-size:1px auto;
+	width:100%;
+	height:100%;
+}
+.fix_menu_wrap,
+.close_wrap{
+	width:86%;
+}
+.close_wrap{
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:5;
+	box-sizing:border-box;
+	text-align:right;
+	padding:14px 10px;
+	opacity: 0;
+    visibility:hidden;
+}
+.close_wrap.on{
+	opacity:1;
+    visibility:visible;
+}
+.scroll_wrap{
+	/*display:none;*/
+	position:absolute;
+	left:0;
+	right:2px;
+	top:60px;
+	bottom:0;
+	box-sizing:border-box;
+	overflow-y:auto;
+	overflow-x:hidden;
+	-webkit-overflow-scrolling:touch;
+	z-index:2;
+}
+.fix_menu_wrap,
+.fix_menu_wrap:before,
+.close_wrap,
+.scroll_wrap{
+	transform:translateX(-100%);
+	transition:all 0.3s;
+}
+.fix_menu_wrap.on,
+.fix_menu_wrap.on:before,
+.close_wrap.on,
+.fix_menu_wrap.on .scroll_wrap{
+	transform:translateX(0);
+}
+.fix_menu.on{
+	position:fixed;
+	top:12px;
+}
+.tab_cont_wrap,
+.calendar_wrap,
+.gnb,
+.nav{
+	padding:0 12px;
+}
+.nav{
+	margin-bottom:30px;
+}
+.nav_menu li.on .depth2{
+	display:block;
+}
+.gnb{
+	width:190px;
+	padding-bottom:9px;
+}
+.tab_cont .btn_cal{
+	display:none;
+}
+.nav_menu a{
+	color:#000;
+	font-size:25px;
+	transition:all 0.3s;
+}
+.nav_menu a:hover,
+.nav_menu .on > a{
+	border-bottom:1px solid #000;
+}
+.nav_menu .none > a{
+	color:#808080;
+}
+.nav_menu .depth2{
+	display:none;
+	margin:10px 0;
+}
+.nav_menu .depth2 a{
+	font-size:20px;
+}
+.nav_menu .depth2 > li{
+	position:relative;
+	padding-left:14px;
+}
+.nav_menu .depth2 > li:before{
+	content:'-';
+	display:inline-block;
+	margin-right:3px;
+	position:absolute;
+	left:0;
+	top:0;
+	font-size:20px;
+}
+.search_wrap .category{
+	transition:all 0.3s;
+	padding:0;
+	width:25px;
+	height:25px;
+	background:#fff !important;
+	text-align:left;
+	margin-bottom:0;
+	overflow:hidden;
+}
+.search_wrap.on .category{
+	background:none;
+	color:#000;
+	width:110px;
+	text-align:left;
+}
+.search_wrap .search_inp{
+	display:table;
+	width:100%;
+}
+.search_wrap .search_inp label,
+.search_wrap .search_inp .inp_wrap,
+.search_wrap .search_inp .btn_search{
+	display:table-cell;
+	vertical-align:middle;
+	font-size:12px;
+}
+.search_wrap .search_inp label{
+	padding:5px;
+	text-align:center;
+	cursor:pointer;
+	color:#000;
+}
+.search_wrap .search_inp .inp{
+	width:100%;
+	border:none;
+	font-size:13px;
+	line-height:23px;
+}
+.search_wrap .search_inp .btn_search{
+	width:1%;
+	padding:0 5px;
+	white-space:nowrap;
+}
+.tab_cont_wrap{
+	margin-bottom:40px;
+}
+.fix_menu_wrap .nav,
+.fix_menu_wrap .gnb,
+.fix_menu_wrap .tab_cont_wrap,
+.fix_menu_wrap .scroll_wrap .calendar_wrap{
+	display:none;
+}
+.fix_menu_wrap .on_menu{
+	display:block !important;
+}
+/* calendar */
+.calendar_inner{
+	position:relative;
+}
+.calendar_wrap{
+	display:none;
+	text-align:center;
+}
+.calendar_wrap .txt_month{
+	text-align:left;
+}
+.calendar_wrap .btn_ctrl > a{
+	position:absolute;
+	top:50%;
+	overflow:hidden;
+	transform:translateY(-50%);
+	display:block;
+	box-sizing:border-box;
+}
+.calendar_wrap .btn_ctrl > .btn_prev{
+	left:0;
+}
+.calendar_wrap .btn_ctrl > .btn_next{
+	right:0;
+}
+.calendar_area{
+	display:inline-block;
+}
+.tbl_calendar{
+	width:auto;
+}
+.tbl_calendar th,
+.tbl_calendar td{
+	padding-left:3px;
+}
+.tbl_calendar th:first-child,
+.tbl_calendar td:first-child{
+	padding-left:0;
+}
+.tbl_calendar .category:hover,
+.tbl_calendar .category:focus{
+	background-color:transparent;
+	color:#000;
+}
+.tbl_calendar .cont_day{
+	display:none;
+	position:absolute;
+	left:0;
+	top:100%;
+	padding:20px 0;
+	font-size:13px;
+	text-align:left;
+	box-sizing:border-box;
+}
+.tbl_calendar .category.on + .cont_day{
+	display: block;
+}
+.tbl_calendar .category.on,
+.tab_cont .btn_cal.on,
+.tbl_calendar .category:hover,
+.tbl_calendar .category:focus{
+	background-color:#000;
+	color:#fff;
+}
+.tbl_calendar .cont_day li{
+	line-height:1.6;
+	font-size:14px;
+}
+
+@media all and (min-width:768px){
+	.nav_wrap{
+		position:fixed;
+		top:0;
+		bottom:0;
+		z-index:2;
+	}
+	.nav_wrap .logo{
+		position:fixed;
+		top:30px;
+		padding:20px 0 20px 219px;
+		font-size:48px;
+		box-sizing:border-box;
+		width:100%;
+	}
+	.nav_wrap .logo.on{
+		display:none;
+	}
+	.fix_menu_wrap{
+		transform:translateX(0)
+	}
+	.fix_menu_wrap:before{
+		background-image:none;
+		z-index:2;
+	}
+	#wrap:before{
+		position:fixed;
+		width:150px;
+		background:#fff;
+		height:100%;
+		content:'';
+		top:0;
+		left:0;
+		z-index:-1;
+	}
+	.fix_menu{
+		position:fixed;
+		top:52px;
+	}
+	.nav_wrap.on .fix_menu{
+		top:12px;
+	}
+	.fix_menu > a, 
+	.fix_menu > div{
+		display:table;
+		float:none;
+	}
+	.fix_menu_wrap, 
+	.close_wrap,
+	.nav_wrap{
+		width:210px;
+	}
+	.scroll_wrap{
+		padding-top:20px;
+		top:200px;
+		bottom:80px;
+	}
+	.fix_menu_wrap .tab_cont_wrap,
+	.fix_menu_wrap .gnb{
+		display:block;
+	}
+	.tab_cont_wrap{
+		position:relative;
+		top:270px;
+		z-index:1;
+	}
+	.nav_wrap.on .tab_cont_wrap{
+		top:230px;
+	}
+	.gnb{
+		position:fixed;
+		bottom:0;
+		z-index:2;
+	}
+	.search_wrap.on .category, 
+	.search_wrap .category:hover, 
+	.search_wrap .category:focus{
+		width:180px;
+	}
+	/* calendar */
+	.calendar_area{
+		position:relative;
+	}
+	.calendar_wrap .btn_ctrl{
+		position:absolute;
+		right:0;
+		top:-14px;
+		z-index:2;
+	}
+	.calendar_wrap .btn_ctrl > a{
+		position:static;
+		float:left;
+		transform:translateY(0);
+		display:block;
+		box-sizing:border-box;
+		z-index:1;
+		margin-left:16px;
+	}
+	.calendar_wrap .is_ico.isi_prev1, 
+	.calendar_wrap .is_ico.isi_next1{
+		width:38px;
+	}
+	.calendar_wrap .is_ico.isi_prev1:before, 
+	.calendar_wrap .is_ico.isi_prev1:after, 
+	.calendar_wrap .is_ico.isi_next1:before, 
+	.calendar_wrap .is_ico.isi_next1:after{
+		height:14px;
+	}
+	
+}
+@media all and (max-width:767px){ /* 모바일 */
+	.fix_menu .category{
+		font-family:'Apercu-Light';
+	    padding:3px;
+	    font-size:15px;
+	    min-width:27px;
+	    min-height:27px;
+	}
+	.fix_menu .fa:before{
+		font-size:18px;
+		margin:0 -2px -2px 0;
+	}
+	.fix_menu .search_wrap .category{
+		padding:1px 0 0 0;
+	}
+}
+@media all and (min-width:768px) and (max-width:1100px){ /* 테블릿적용 */
+	.fix_menu .category{
+		font-family:'Apercu-Light';
+	    padding:7px 7px 5px 7px;
+	    font-size:26px;
+	    min-width:48px;
+	    min-height:48px;
+	    margin-bottom:8px;
+	}
+	.fix_menu .fa:before{
+		font-size:30px;
+		margin:0 -2px 0 0;
+	}
+	.search_wrap .search_inp label{
+		padding-left:3px;
+		padding-top:2px;
+	}
+	.search_wrap .search_inp .inp{
+		height:34px;
+		line-height:34px;
+	}
+	.search_wrap .search_inp .btn_search,
+	.search_wrap .search_inp .inp{
+	 	font-size:15px;
+	 }
+}
+@media all and (min-width:1100px){
+	.fix_menu_wrap, 
+	.close_wrap,
+	.nav_wrap{
+		width:292px;
+	}
+	.tab_cont_wrap, 
+	.calendar_wrap, 
+	.nav_wrap .logo,
+	.gnb, 
+	.nav{
+		position:relative;
+		padding:0 10px 0 50px;
+		box-sizing:border-box;
+		width:100%;
+		z-index:2;
+	}
+	.nav{
+		z-index:3;
+	}
+	.nav_wrap{
+		top:50px;
+	}
+	.nav_wrap.on{
+		top:14px;
+	}
+	.nav_wrap .logo,
+	.nav_wrap .logo.on{
+		display:block;
+		top:0;
+		position:relative;
+		font-size:25px;
+		margin-bottom:32px;
+	}
+	.nav_menu{
+		position:relative;
+		z-index:1;
+	}
+	.nav_menu .depth2 a{
+		position:relative;
+		z-index:1;
+	}
+	.nav_menu .depth2{
+		position:absolute;
+		left:170px;
+		top:-10px;
+		width:385px;
+		padding:10px 10px 8px 12px;
+		background:#fff;
+		z-index:5;
+	}
+	.nav_menu .depth2 a{
+		font-size:25px;
+	}
+	.nav_menu > .on .depth2{
+		display:block;
+	}
+	.nav_menu .depth2:before,
+	.nav_menu .depth2:after{
+		content:'';
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		content:'';
+	}
+	.nav_menu .depth2:before{
+		background:url(../images/common/m_bg_body_lineY.png) repeat-y 0 0, url(../images/common/m_bg_body_lineY.png) repeat-y 100% 0;
+		background-size:1px auto, 1px auto;
+	}
+	.nav_menu .depth2:after{
+		background:url(../images/common/bg_body_lineX.png) repeat-x 0 0, url(../images/common/bg_body_lineX.png) repeat-x 0 100%;
+		background-size:auto 1px, auto 1px;
+	}
+	.fix_menu_wrap{
+		position:relative;
+		top:0;
+	}
+	.fix_menu_wrap:before{
+		position:fixed;
+		top:0;
+		left:0;
+	}
+	.fix_menu_wrap .nav,
+	.fix_menu_wrap .gnb,
+	.fix_menu_wrap .tab_cont_wrap,
+	.fix_menu_wrap > .calendar_wrap{
+		display:block;
+	}/* 
+	.fix_menu_wrap .on_menu{
+		display:block !important;
+	} */
+	.fix_menu > a{
+		display:none;
+	}
+	.fix_menu{
+		position:fixed;	
+		top:60px;
+		right:30px;
+	}
+	.fix_menu.on{
+		top:28px;
+	}
+	.gnb{
+		width:250px;
+		position:fixed;
+	    bottom:16px;
+	}
+	/* 파이어폭스핵 */
+	@-moz-document url-prefix(){
+		.gnb{bottom:73px;}
+	}
+	/* 크롬핵 */
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+		.gnb{bottom:73px;}
+	}
+	.tab_cont_wrap,
+	.nav_wrap.on .tab_cont_wrap{
+		top:0;
+	}
+	.fix_menu_wrap > .calendar_wrap,
+	.close_wrap{
+		display:none;
+	}
+	/* calendar */
+	.tab_cont .btn_cal{
+		display:inline-block;
+	}
+	.tbl_calendar td{
+		position:relative;
+	}
+	.tab_cont .calendar_wrap{
+		position:absolute;
+		left:0;
+		background:#fff;
+		text-align:left;
+		padding-top:20px;
+		padding-bottom:20px;
+		padding-right:0;
+	}
+	.tbl_calendar .category.on + .cont_day{
+		display: block;
+	}
+	.tbl_calendar .cont_day{
+		position:absolute;
+		background:#fff;
+		left:3px;
+		width:193px;
+		height:170px;
+		padding:10px;
+		overflow-y:scroll;
+		border:1px solid #000;
+		z-index:1;
+	}
+	.tbl_calendar .cont_day li{
+		line-height:1.5;
+		font-size:12px;
+	}
+	
+}
